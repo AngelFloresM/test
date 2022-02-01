@@ -2,7 +2,6 @@ const puppeteer = require("puppeteer");
 require("dotenv").config();
 
 async function fetchTodoList() {
-  
   const URL = "https://randomtodolistgenerator.herokuapp.com/library";
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -20,7 +19,6 @@ async function fetchTodoList() {
   return todoListTitles.map((elem, i) => {
     return { title: elem, description: todoListDescriptions[i] };
   });
-
 }
 
 async function accessTodoist(todosToAdd) {
@@ -44,7 +42,7 @@ async function accessTodoist(todosToAdd) {
   for (let i = 0; i < todosToAdd.length; i++) {
     do {
       try {
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(1500);
 
         const addTodoBtn = await page.$(".plus_add_button");
         await addTodoBtn.click();
