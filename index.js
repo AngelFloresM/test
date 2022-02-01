@@ -20,12 +20,10 @@ async function fetchTodoList() {
   return todoListTitles.map((elem, i) => {
     return { title: elem, description: todoListDescriptions[i] };
   });
-  
+
 }
 
 async function accessTodoist(todosToAdd) {
-  // console.log(todosToAdd);
-
   let err = { msg: "" };
 
   const URL = "https://todoist.com/users/showlogin";
@@ -63,7 +61,6 @@ async function accessTodoist(todosToAdd) {
       } catch (error) {
         await page.reload();
         err.msg = error;
-        console.log(err.msg);
       }
     } while (err.msg !== "");
 
